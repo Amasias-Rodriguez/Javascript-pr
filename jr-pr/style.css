@@ -1,0 +1,10 @@
+#countlabel{
+  display: block;
+  text-align: center;
+  font-size: 10em;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#btnContainer{
+  text-align: center;
+}
