@@ -32,3 +32,12 @@ myButton.onclick = function(){
     randomNum = Math.floor(Math.random() * max) + min;
     myLabel.textContent = randomNum
 }
+
+
+//If statements
+
+let time = 10;
+
+if(time != 12){
+    console.log("good morning");
+} console.log("good afternoon");
