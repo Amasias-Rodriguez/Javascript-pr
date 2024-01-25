@@ -41,3 +41,22 @@ let time = 10;
 if(time != 12){
     console.log("good morning");
 } console.log("good afternoon");
+
+//Checked property
+
+const myCheckBox = document.getElementById("myCheckBox");
+const visaBtn = document.getElementById("visaBtn");
+const masterCardBtn = document.getElementById("masterCardBtn");
+const mySubmit = document.getElementById("mySubmit");
+const subResult = document.getElementById("subResult");
+const paymentResult = document.getElementById("paymentResult");
+
+mySubmit.onclick = function(){
+    if(myCheckBox.checked){
+        subResult.textContent = 'You are suscribed';
+    } 
+    else{
+        subResult.textContent = 'You are NOT suscribed';
+    }
+   
+}
