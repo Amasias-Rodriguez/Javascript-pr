@@ -1,104 +1,28 @@
-const decreasteBtn = document.getElementById("decreaseBtn");
-const resetBtn = document.getElementById("resetBtn");
-const increaseBtn = document.getElementById("increaseBtn");
-const countlabel = document.getElementById("countlabel");
+function generatePassword(length, includeLowercase, includeUppercase, includeNumbers, includeSymbols){
 
-let count = 0;
+    const lowercaseChars = "abcdefghijklmnrnopqrstuvwxyz";
+    const uppercaseChars = "ABCDEFGHLMNIJKPQRSTMNUVWXYZ";
+    const numberChars = "0123456789";
+    const symbolsChars = "!#$%&/()+-=?¡";
 
+    let allowedChars = "";
+    let password = "";
 
-increaseBtn.onclick = function(){
-    count++;
-    countlabel.textContent = count;
-}
-decreaseBtn.onclick = function(){
-    count--;
-    countlabel.textContent = count;
-}
+    allowedChars += includeLowercase ?  lowercaseChars : "";
+    allowedChars += includeUppercase ? uppercaseChars : "";
+    allowedChars += includeNumbers ? numberChars : "";
+    allowedChars += includeSymbols ? symbolsChars : "";
 
-resetBtn.onclick = function(){
-    count = 0;
-    countlabel.textContent = count;
+    return '';
 }
 
-//Random num generator
+const passwordLength = 12;
+const includeLowercase = true;
+const includeUppercase = true;
+const includeNumbers = true;
+const includeSymbols = true;
 
-const myButton = document.getElementById("myButton");
-const myLabel = document.getElementById("myLabel");
-const min = 1;
-const max = 6;
-let randomNum;
+const password = generatePassword
+(passwordLength,includeLowercase,includeUppercase,includeSymbols);
 
-myButton.onclick = function(){
-    randomNum = Math.floor(Math.random() * max) + min;
-    myLabel.textContent = randomNum
-}
-
-
-//If statements
-
-let time = 10;
-
-if(time != 12){
-    console.log("good morning");
-} console.log("good afternoon");
-
-//Checked property
-
-const myCheckBox = document.getElementById("myCheckBox");
-const visaBtn = document.getElementById("visaBtn");
-const masterCardBtn = document.getElementById("masterCardBtn");
-const mySubmit = document.getElementById("mySubmit");
-const subResult = document.getElementById("subResult");
-const paymentResult = document.getElementById("paymentResult");
-
-mySubmit.onclick = function(){
-    if(myCheckBox.checked){
-        subResult.textContent = 'You are suscribed';
-    } 
-    else{
-        subResult.textContent = 'You are NOT suscribed';
-    }
-   
-}
-//Temperature conversion program
-
-const textBox = document.getElementById("textBox");
-const toFarenheit = document.getElementById("toFarenheit");
-const toCelcius = document.getElementById("toCelcius");
-const result = document.getElementById("result");
-let temp;
-
-function convert(){
-    if(toFarenheit.checked){
-        temp = Number( textBox.value); 
-        temp = temp * 9 / 5 + 32;
-        result.textContent = temp.toFixed(1) + "°F";
-    }
-    else if(toCelcius.checked){
-        temp = Number( textBox.value); 
-        temp = (temp - 32 ) * (5/9);
-        result.textContent = temp.toFixed(1) + "°F";
-    }
-    else{
-        result.textContent = "Select a unit";
-    }
-}
-
-//Roll dices
-
-function rollDice(){
-    const numbOfDice = document.getElementById("numbOfDice").value;
-    const diceResult = document.getElementById("diceResult");
-    const diceImages = document.getElementById("diceImages");
-    const values = [];
-    const images = [];
-
-    for(let i = 0; i < numbOfDice; i++){
-        const value = Math.floor(Math.random()* 6) + 1;
-        values.push(value);
-        images.push(`<img src="images/${value}.png" alt="Dice ${value}">`);
-    }
-
-    diceResult.textContent = `dice: ${values.join(',')}`;
-    diceImages.innerHTML = images.join('');
-}
+console.log(`Generate password: ${password}`);
