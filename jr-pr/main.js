@@ -1,3 +1,5 @@
+//filter method
+
 const cars = ["suziki", "toyota", "mitsubishi", "audi", "lamborgini"];
 
 const shortWords = cars.filter(getShortWords);
